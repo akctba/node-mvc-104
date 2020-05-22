@@ -16,4 +16,10 @@
     <main>
       <h1><%= product.name %></h1>
       <h3>Price <%=product.price%></h3>
+
+      <form action="/delete-product" method="POST">
+          <input type="hidden" value="<%=product.id%>" id="productId" name="productId" />
+          <button type="submit">Delete</button>
+      </form>
+
 <%- include('partials/end.ejs') %>

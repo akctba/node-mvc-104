@@ -53,6 +53,20 @@ exports.getOneProductByForm = (req, res, next) => {
     }
 }
 
+exports.deleteOneProduct = (req, res, next) => {
+    Product.deleteById(req.body.productId, result => {
+        if (result.msg) {
+            //error
+            res.render('404', {
+                message: result.msg,
+                pageTitle: 'Product not found'
+            })
+        } else {
+            res.redirect('/');
+        }
+    })
+}
+
 
 function addZeroes(num){
     const dec = num.split('.')[1];

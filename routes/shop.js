@@ -10,4 +10,6 @@ router.get('/show-product/:productId',productController.getOneProductById);
 
 router.post('/show-product', productController.getOneProductByForm);
 
+router.post('/delete-product', productController.deleteOneProduct);
+
 module.exports = router;

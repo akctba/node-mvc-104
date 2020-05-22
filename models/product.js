@@ -51,4 +51,24 @@ module.exports = class Product{
         }
     }
 
+    static deleteById(productid, cb) {
+
+        fs.readFile(dataPath, (err, data) => {
+            if(err) {
+                cb({
+                    msg: 'It was not possible to find product ' + productid
+                });
+            } else {
+                let products = JSON.parse(data);
+                let newList = products.filter(p => p.id !== Number(productid));
+
+                fs.writeFile(dataPath, JSON.stringify(newList,null,2), err => {
+                    if(err) throw err;
+                    cb(newList);
+                })
+
+            }
+        })
+    }
+
 }
