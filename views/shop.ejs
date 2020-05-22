@@ -25,6 +25,13 @@
                     <div class="card__content">
                         <h2 class="product__price">$<%=prod.price%></h2>
                     </div>
+                    <div class="card__content">
+                      <!-- <a href="show-product/<%=prod.id%>">Details</a> -->
+                      <form action="show-product" method="POST">
+                        <button type="submit">Details</button>
+                        <input type="hidden" name="productId" value="<%=prod.id%>">
+                      </form>
+                  </div>
                 </article>
             <% } %>
         </div>
